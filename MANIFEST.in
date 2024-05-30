@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include trade_india_integration *.css
+recursive-include trade_india_integration *.csv
+recursive-include trade_india_integration *.html
+recursive-include trade_india_integration *.ico
+recursive-include trade_india_integration *.js
+recursive-include trade_india_integration *.json
+recursive-include trade_india_integration *.md
+recursive-include trade_india_integration *.png
+recursive-include trade_india_integration *.py
+recursive-include trade_india_integration *.svg
+recursive-include trade_india_integration *.txt
+recursive-exclude trade_india_integration *.pyc
