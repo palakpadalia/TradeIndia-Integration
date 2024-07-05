@@ -1,0 +1,56 @@
+{
+ "cards": [
+  {
+   "card": "TradeIndia Daily Enquiry"
+  },
+  {
+   "card": "TradeIndia Yesterday Enquiry"
+  },
+  {
+   "card": "TradeIndia Weekly Enquiry"
+  },
+  {
+   "card": "TradeIndia Last Month Enquiry"
+  },
+  {
+   "card": "TradeIndia Total Enquiry"
+  },
+  {
+   "card": "TradeIndia Open Enquiry"
+  },
+  {
+   "card": "TradeIndia Approach Enquiry"
+  },
+  {
+   "card": "TradeIndia Repeat Customer Enquiry"
+  },
+  {
+   "card": "TradeIndia Lost Enquiry"
+  },
+  {
+   "card": "TradeIndia Not Connected Enquiry"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "TradeIndia Enquiry Trend",
+   "width": "Full"
+  },
+  {
+   "chart": "TradeIndia Enquiry Status",
+   "width": "Half"
+  }
+ ],
+ "creation": "2024-07-05 17:50:52.863528",
+ "dashboard_name": "TradeIndia Enquiry Management Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 1,
+ "is_standard": 1,
+ "modified": "2024-07-05 18:12:20.312751",
+ "modified_by": "Administrator",
+ "module": "Trade India Integration",
+ "name": "TradeIndia Enquiry Management Dashboard",
+ "owner": "Administrator"
+}

@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-05-30 14:39:55.923294",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "section_break_zocyr",
+  "tradeindia_url",
+  "tradeindia_key",
+  "column_break_cjcqa",
+  "user_id",
+  "profile_id",
+  "section_break_chr7n",
+  "from_date",
+  "sync_lead",
+  "column_break_xd2bf",
+  "to_date"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "depends_on": "eval:doc.enabled==1",
+   "fieldname": "section_break_zocyr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "tradeindia_url",
+   "fieldtype": "Data",
+   "label": "TradeIndia URL"
+  },
+  {
+   "fieldname": "column_break_cjcqa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "profile_id",
+   "fieldtype": "Data",
+   "label": "Profile ID"
+  },
+  {
+   "depends_on": "eval:doc.enabled==1",
+   "fieldname": "section_break_chr7n",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "fieldname": "sync_lead",
+   "fieldtype": "Button",
+   "label": "Sync Lead"
+  },
+  {
+   "fieldname": "column_break_xd2bf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "tradeindia_key",
+   "fieldtype": "Data",
+   "label": "TradeIndia Key"
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Data",
+   "label": "User  ID"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-05-30 14:45:14.920426",
+ "modified_by": "Administrator",
+ "module": "Trade India Integration",
+ "name": "TradeIndia Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

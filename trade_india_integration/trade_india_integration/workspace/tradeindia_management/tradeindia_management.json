@@ -1,0 +1,56 @@
+{
+ "charts": [
+  {
+   "chart_name": "TradeIndia Enquiry Trend",
+   "label": "TradeIndia Enquiry Trend"
+  }
+ ],
+ "content": "[{\"id\":\"NPpo9uMa2L\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">TradeIndia Management</span>\",\"col\":12}},{\"id\":\"qsSHZF2fZ1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"TradeIndia Enquiry\",\"col\":3}},{\"id\":\"UYBs5ZfOaa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"TradeIndia Settings\",\"col\":3}},{\"id\":\"tLzoCMbJTE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"M3E6J-JP6W\",\"type\":\"chart\",\"data\":{\"chart_name\":\"TradeIndia Enquiry Trend\",\"col\":12}}]",
+ "creation": "2024-07-05 17:37:55.621930",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "quantity-1",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "TradeIndia Management",
+ "links": [],
+ "modified": "2024-07-05 18:16:09.602513",
+ "modified_by": "Administrator",
+ "module": "Trade India Integration",
+ "name": "TradeIndia Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 31.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Dashboard",
+   "link_to": "TradeIndia Enquiry Management Dashboard",
+   "type": "Dashboard"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "TradeIndia Settings",
+   "link_to": "TradeIndia Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "TradeIndia Enquiry",
+   "link_to": "TradeIndia Enquiry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "TradeIndia Management"
+}
