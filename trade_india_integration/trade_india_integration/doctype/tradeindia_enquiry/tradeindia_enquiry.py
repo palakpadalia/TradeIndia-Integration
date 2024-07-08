@@ -409,7 +409,7 @@ def trade_india_to_lead(
 
         doc12 = frappe.get_doc("Lead", data.name)
         doc12.append(
-            "follow_up",
+            "custom_follow_up",
             {
                 "date": datetime.today(),
                 "product": product_name,
@@ -451,7 +451,7 @@ def trade_india_to_lead(
             print(doc1)
             print(len1)
 
-            new_row = doc.append("follow_up", {})
+            new_row = doc.append("custom_follow_up", {})
             new_row.update(
                 {
                     "date": datetime.today(),
