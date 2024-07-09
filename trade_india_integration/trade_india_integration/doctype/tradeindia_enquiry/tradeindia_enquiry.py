@@ -1,6 +1,8 @@
 # Copyright (c) 2024, Sanskar Technolab and contributors
 # For license information, please see license.txt
 
+# import frappe
+
 import frappe
 import json
 from frappe.utils.data import now_datetime
@@ -9,8 +11,11 @@ from datetime import datetime, timedelta
 from frappe.utils import now
 from frappe.model.document import Document
 
+
+
 class TradeIndiaEnquiry(Document):
 	pass
+
 
 
 

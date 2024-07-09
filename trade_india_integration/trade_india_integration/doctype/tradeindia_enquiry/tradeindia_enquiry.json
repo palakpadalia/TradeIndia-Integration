@@ -1,329 +1,247 @@
 {
- "actions": [],
- "allow_rename": 1,
- "autoname": "naming_series:naming_series",
- "creation": "2024-05-30 13:21:59.810713",
- "default_view": "List",
- "doctype": "DocType",
- "editable_grid": 1,
- "engine": "InnoDB",
- "field_order": [
-  "naming_series",
-  "lead",
-  "lead_status",
-  "status",
-  "remark",
-  "lead_owner",
-  "owner1",
-  "column_break_bchzn",
-  "sender_id",
-  "rfi_id",
-  "full_name",
-  "inquiry_type",
-  "lost_verification",
-  "user",
-  "not_connected_reminder_section",
-  "reminder",
-  "reminder_section",
-  "next_date",
-  "sent",
-  "column_break_gvztq",
-  "remarks",
-  "contact_details_section",
-  "mobile",
-  "column_break_3ngvl",
-  "mobile_2",
-  "product_details_section",
-  "product_id",
-  "product_name",
-  "column_break_pih8h",
-  "product_source",
-  "company",
-  "address_section",
-  "city",
-  "sender_state",
-  "country",
-  "column_break_2hcgy",
-  "date",
-  "time",
-  "message_section",
-  "message"
- ],
- "fields": [
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Series",
-   "options": "TRD.-.DD.-.MM.-.####"
-  },
-  {
-   "fieldname": "lead",
-   "fieldtype": "Link",
-   "label": "Lead",
-   "options": "Lead",
-   "read_only": 1
-  },
-  {
-   "fetch_from": "lead.status",
-   "fieldname": "lead_status",
-   "fieldtype": "Data",
-   "label": "lead status",
-   "read_only": 1
-  },
-  {
-   "default": "Open",
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "TradeIndia Status",
-   "options": "\nOpen\nApproach\nLost\nNot Connected\nRepeat Customer",
-   "read_only": 1
-  },
-  {
-   "depends_on": "eval:doc.status==\"Lost\"",
-   "fieldname": "remark",
-   "fieldtype": "Small Text",
-   "label": "Remark",
-   "mandatory_depends_on": "eval:doc.status==\"Lost\""
-  },
-  {
-   "depends_on": "eval:doc.indiamart_status==\"Repeat Customer\"",
-   "fetch_from": "lead.lead_owner",
-   "fieldname": "lead_owner",
-   "fieldtype": "Link",
-   "label": "Lead Owner",
-   "options": "User",
-   "read_only": 1
-  },
-  {
-   "default": "__user",
-   "depends_on": "eval:doc.status==\"Approach\" || doc.status==\"Lost\"",
-   "fieldname": "owner1",
-   "fieldtype": "Link",
-   "label": "Owner",
-   "options": "User"
-  },
-  {
-   "fieldname": "column_break_bchzn",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "sender_id",
-   "fieldtype": "Data",
-   "label": "Sender Id"
-  },
-  {
-   "fieldname": "full_name",
-   "fieldtype": "Data",
-   "label": "Full Name"
-  },
-  {
-   "default": "Not Approved",
-   "depends_on": "eval:doc.status ==\"Lost\"",
-   "fieldname": "lost_verification",
-   "fieldtype": "Select",
-   "label": "Lost Verification",
-   "mandatory_depends_on": "eval:doc.status ==\"Lost\"",
-   "options": "Not Approved\nApproved",
-   "permlevel": 1
-  },
-  {
-   "depends_on": "eval:doc.lost_verification==\"Approved\"",
-   "fieldname": "user",
-   "fieldtype": "Link",
-   "label": "Approved By",
-   "options": "User",
-   "permlevel": 1
-  },
-  {
-   "depends_on": "eval:doc.status == \"Not Connected\"",
-   "fieldname": "not_connected_reminder_section",
-   "fieldtype": "Section Break",
-   "label": "Not Connected Reminder"
-  },
-  {
-   "fieldname": "reminder",
-   "fieldtype": "Table",
-   "label": "Reminder",
-   "options": "Reminder"
-  },
-  {
-   "depends_on": "eval:doc.status==\"Not Connected\"",
-   "fieldname": "reminder_section",
-   "fieldtype": "Section Break",
-   "hidden": 1,
-   "label": "Reminder"
-  },
-  {
-   "fieldname": "next_date",
-   "fieldtype": "Datetime",
-   "label": "Next Date"
-  },
-  {
-   "default": "0",
-   "fieldname": "sent",
-   "fieldtype": "Check",
-   "label": "Sent",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_gvztq",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "remarks",
-   "fieldtype": "Small Text",
-   "label": "Remarks"
-  },
-  {
-   "fieldname": "contact_details_section",
-   "fieldtype": "Section Break",
-   "label": "Contact Details"
-  },
-  {
-   "fieldname": "mobile",
-   "fieldtype": "Data",
-   "label": "Mobile"
-  },
-  {
-   "fieldname": "product_details_section",
-   "fieldtype": "Section Break",
-   "label": "Product Details"
-  },
-  {
-   "fetch_if_empty": 1,
-   "fieldname": "product_id",
-   "fieldtype": "Data",
-   "label": "Product ID"
-  },
-  {
-   "fieldname": "product_name",
-   "fieldtype": "Data",
-   "label": "Product Name"
-  },
-  {
-   "fieldname": "product_source",
-   "fieldtype": "Data",
-   "label": "Product Source"
-  },
-  {
-   "fieldname": "column_break_pih8h",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "company",
-   "fieldtype": "Data",
-   "label": "company"
-  },
-  {
-   "fieldname": "address_section",
-   "fieldtype": "Section Break",
-   "label": "Address"
-  },
-  {
-   "fieldname": "city",
-   "fieldtype": "Data",
-   "label": "City"
-  },
-  {
-   "fieldname": "sender_state",
-   "fieldtype": "Data",
-   "label": "State"
-  },
-  {
-   "fieldname": "time",
-   "fieldtype": "Time",
-   "label": "time"
-  },
-  {
-   "fieldname": "message_section",
-   "fieldtype": "Section Break",
-   "label": "Message"
-  },
-  {
-   "fieldname": "message",
-   "fieldtype": "Small Text",
-   "label": "Message"
-  },
-  {
-   "fieldname": "mobile_2",
-   "fieldtype": "Data",
-   "label": "Mobile 2"
-  },
-  {
-   "fieldname": "inquiry_type",
-   "fieldtype": "Data",
-   "label": "Inquiry Type"
-  },
-  {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "label": "date"
-  },
-  {
-   "fieldname": "column_break_3ngvl",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_2hcgy",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "country",
-   "fieldtype": "Data",
-   "label": "Country"
-  },
-  {
-   "fieldname": "rfi_id",
-   "fieldtype": "Data",
-   "label": "Rfi ID"
-  }
- ],
- "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2024-06-06 10:39:28.947109",
- "modified_by": "Administrator",
- "module": "Trade India Integration",
- "name": "TradeIndia Enquiry",
- "naming_rule": "By \"Naming Series\" field",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": [
-  {
-   "color": "Blue",
-   "title": "Open"
-  },
-  {
-   "color": "Green",
-   "title": "Approach"
-  },
-  {
-   "color": "Red",
-   "title": "Lost"
-  },
-  {
-   "color": "Purple",
-   "title": "Repeat Customer"
-  },
-  {
-   "color": "Yellow",
-   "title": "Not Connected"
-  }
- ]
+    "actions": [],
+    "allow_rename": 1,
+    "creation": "2024-07-09 12:46:41.953067",
+    "doctype": "DocType",
+    "engine": "InnoDB",
+    "field_order": [
+        "section_break_xwhv"
+    ],
+    "fields": [
+        {
+            "fieldname": "naming_series",
+            "fieldtype": "Select",
+            "label": "Series",
+            "options": "TRD.-.DD.-.MM.-.####"
+        },
+        {
+            "fieldname": "lead",
+            "fieldtype": "Link",
+            "label": "Lead",
+            "options": "Lead",
+            "read_only": 1
+        },
+        {
+            "fetch_from": "lead.status",
+            "fieldname": "lead_status",
+            "fieldtype": "Data",
+            "label": "lead status",
+            "read_only": 1
+        },
+        {
+            "default": "Open",
+            "fieldname": "status",
+            "fieldtype": "Select",
+            "in_list_view": 1,
+            "in_standard_filter": 1,
+            "label": "TradeIndia Status",
+            "options": "\nOpen\nApproach\nLost\nNot Connected\nRepeat Customer",
+            "read_only": 1
+        },
+        {
+            "depends_on": "eval:doc.status==\"Lost\"",
+            "fieldname": "remark",
+            "fieldtype": "Small Text",
+            "label": "Remark",
+            "mandatory_depends_on": "eval:doc.status==\"Lost\""
+        },
+        {
+            "depends_on": "eval:doc.indiamart_status==\"Repeat Customer\"",
+            "fetch_from": "lead.lead_owner",
+            "fieldname": "lead_owner",
+            "fieldtype": "Link",
+            "label": "Lead Owner",
+            "options": "User",
+            "read_only": 1
+        },
+        {
+            "default": "__user",
+            "depends_on": "eval:doc.status==\"Approach\" || doc.status==\"Lost\"",
+            "fieldname": "owner1",
+            "fieldtype": "Link",
+            "label": "Owner",
+            "options": "User"
+        },
+        {
+            "fieldname": "column_break_bchzn",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "sender_id",
+            "fieldtype": "Data",
+            "label": "Sender Id"
+        },
+        {
+            "fieldname": "full_name",
+            "fieldtype": "Data",
+            "label": "Full Name"
+        },
+        {
+            "default": "Not Approved",
+            "depends_on": "eval:doc.status ==\"Lost\"",
+            "fieldname": "lost_verification",
+            "fieldtype": "Select",
+            "label": "Lost Verification",
+            "mandatory_depends_on": "eval:doc.status ==\"Lost\"",
+            "options": "Not Approved\nApproved",
+            "permlevel": 1
+        },
+        {
+            "depends_on": "eval:doc.lost_verification==\"Approved\"",
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "label": "Approved By",
+            "options": "User",
+            "permlevel": 1
+        },
+        
+        {
+            "fieldname": "next_date",
+            "fieldtype": "Datetime",
+            "label": "Next Date"
+        },
+        {
+            "default": "0",
+            "fieldname": "sent",
+            "fieldtype": "Check",
+            "label": "Sent",
+            "read_only": 1
+        },
+        {
+            "fieldname": "column_break_gvztq",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "remarks",
+            "fieldtype": "Small Text",
+            "label": "Remarks"
+        },
+        {
+            "fieldname": "contact_details_section",
+            "fieldtype": "Section Break",
+            "label": "Contact Details"
+        },
+        {
+            "fieldname": "mobile",
+            "fieldtype": "Data",
+            "label": "Mobile"
+        },
+        {
+            "fieldname": "product_details_section",
+            "fieldtype": "Section Break",
+            "label": "Product Details"
+        },
+        {
+            "fetch_if_empty": 1,
+            "fieldname": "product_id",
+            "fieldtype": "Data",
+            "label": "Product ID"
+        },
+        {
+            "fieldname": "product_name",
+            "fieldtype": "Data",
+            "label": "Product Name"
+        },
+        {
+            "fieldname": "product_source",
+            "fieldtype": "Data",
+            "label": "Product Source"
+        },
+        {
+            "fieldname": "column_break_pih8h",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "company",
+            "fieldtype": "Data",
+            "label": "company"
+        },
+        {
+            "fieldname": "address_section",
+            "fieldtype": "Section Break",
+            "label": "Address"
+        },
+        {
+            "fieldname": "city",
+            "fieldtype": "Data",
+            "label": "City"
+        },
+        {
+            "fieldname": "sender_state",
+            "fieldtype": "Data",
+            "label": "State"
+        },
+        {
+            "fieldname": "time",
+            "fieldtype": "Time",
+            "label": "time"
+        },
+        {
+            "fieldname": "message_section",
+            "fieldtype": "Section Break",
+            "label": "Message"
+        },
+        {
+            "fieldname": "message",
+            "fieldtype": "Small Text",
+            "label": "Message"
+        },
+        {
+            "fieldname": "mobile_2",
+            "fieldtype": "Data",
+            "label": "Mobile 2"
+        },
+        {
+            "fieldname": "inquiry_type",
+            "fieldtype": "Data",
+            "label": "Inquiry Type"
+        },
+        {
+            "fieldname": "date",
+            "fieldtype": "Date",
+            "label": "date"
+        },
+        {
+            "fieldname": "column_break_3ngvl",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "column_break_2hcgy",
+            "fieldtype": "Column Break"
+        },
+        {
+            "fieldname": "country",
+            "fieldtype": "Data",
+            "label": "Country"
+        },
+        {
+            "fieldname": "rfi_id",
+            "fieldtype": "Data",
+            "label": "Rfi ID"
+        }
+    ],
+    "index_web_pages_for_search": 1,
+    "links": [],
+    "modified": "2024-07-09 12:46:41.953067",
+    "modified_by": "Administrator",
+    "module": "Trade India Integration",
+    "name": "TradeIndia Enquiry",
+    "owner": "Administrator",
+    "permissions": [
+        {
+            "create": 1,
+            "delete": 1,
+            "email": 1,
+            "export": 1,
+            "print": 1,
+            "read": 1,
+            "report": 1,
+            "role": "System Manager",
+            "share": 1,
+            "write": 1
+        }
+    ],
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "states": []
 }

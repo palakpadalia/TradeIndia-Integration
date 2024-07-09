@@ -1,7 +1,7 @@
 // Copyright (c) 2024, Sanskar Technolab and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('TradeIndia Enquiry', {
+frappe.ui.form.on("TradeIndia Enquiry", {
 	refresh: function (frm) {
 		if (frm.doc.status == "Approach") {
 
