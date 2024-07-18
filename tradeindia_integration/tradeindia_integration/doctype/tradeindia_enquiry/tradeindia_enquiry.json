@@ -1,0 +1,302 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-07-11 14:10:08.821306",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enquiry_details_section",
+  "full_name",
+  "enquiry_type",
+  "lost_verification",
+  "company",
+  "naming_series",
+  "column_break_bchzn",
+  "sender_id",
+  "owner1",
+  "enquiry_time",
+  "enquiry_date",
+  "user",
+  "column_break_gvztq",
+  "lead",
+  "lead_status",
+  "lead_owner",
+  "rfi_id",
+  "status",
+  "contact_details_section",
+  "email_id",
+  "column_break_thop",
+  "mobile_no",
+  "column_break_foww",
+  "phone_no",
+  "product_details_section",
+  "product_id",
+  "column_break_fvaa",
+  "product_name",
+  "column_break_pih8h",
+  "product_source",
+  "address_section",
+  "country",
+  "column_break_wtxe",
+  "sender_state",
+  "column_break_oggo",
+  "city",
+  "message_section",
+  "message",
+  "column_break_3ngvl",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "TR-IND.-.DD.-.MM.-.###."
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Lead",
+   "options": "Lead",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "lead.status",
+   "fieldname": "lead_status",
+   "fieldtype": "Data",
+   "label": "Lead Status",
+   "read_only": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "\nOpen\nApproach\nLost\nNot Connected\nRepeat Customer",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.indiamart_status==\"Repeat Customer\"",
+   "fetch_from": "lead.lead_owner",
+   "fieldname": "lead_owner",
+   "fieldtype": "Link",
+   "label": "Lead Owner",
+   "options": "User"
+  },
+  {
+   "default": "__user",
+   "depends_on": "eval:doc.status==\"Approach\" || doc.status==\"Lost\"",
+   "fieldname": "owner1",
+   "fieldtype": "Link",
+   "label": "Owner",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_bchzn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sender_id",
+   "fieldtype": "Data",
+   "label": "Sender ID"
+  },
+  {
+   "fieldname": "full_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Full Name"
+  },
+  {
+   "default": "Not Approved",
+   "depends_on": "eval:doc.status ==\"Lost\"",
+   "fieldname": "lost_verification",
+   "fieldtype": "Select",
+   "label": "Lost Verification",
+   "mandatory_depends_on": "eval:doc.status ==\"Lost\"",
+   "options": "Not Approved\nApproved",
+   "permlevel": 1
+  },
+  {
+   "depends_on": "eval:doc.lost_verification==\"Approved\"",
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "User",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "column_break_gvztq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "contact_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contact Details"
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Mobile No"
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Email ID"
+  },
+  {
+   "fieldname": "product_details_section",
+   "fieldtype": "Section Break",
+   "label": "Product Details"
+  },
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "product_id",
+   "fieldtype": "Data",
+   "label": "Product ID"
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Name"
+  },
+  {
+   "fieldname": "product_source",
+   "fieldtype": "Data",
+   "label": "Product Source"
+  },
+  {
+   "fieldname": "column_break_pih8h",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company"
+  },
+  {
+   "fieldname": "address_section",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "City"
+  },
+  {
+   "fieldname": "sender_state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "message_section",
+   "fieldtype": "Section Break",
+   "label": "Message & Remarks"
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Data",
+   "label": "Phone No"
+  },
+  {
+   "fieldname": "enquiry_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Enquiry Type"
+  },
+  {
+   "fieldname": "column_break_3ngvl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "rfi_id",
+   "fieldtype": "Data",
+   "label": "RFI ID"
+  },
+  {
+   "fieldname": "column_break_foww",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wtxe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_thop",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fvaa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_oggo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enquiry_time",
+   "fieldtype": "Time",
+   "label": "Enquiry Time"
+  },
+  {
+   "fieldname": "enquiry_date",
+   "fieldtype": "Date",
+   "label": "Enquiry Date"
+  },
+  {
+   "fieldname": "enquiry_details_section",
+   "fieldtype": "Section Break",
+   "label": "Enquiry Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-16 12:17:32.955511",
+ "modified_by": "Administrator",
+ "module": "TradeIndia Integration",
+ "name": "TradeIndia Enquiry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

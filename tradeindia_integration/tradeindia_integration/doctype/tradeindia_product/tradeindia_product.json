@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-12 16:32:38.615532",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "product_name",
+  "enquiry_id",
+  "remarks",
+  "enquiry_date",
+  "user",
+  "send_notification",
+  "enquiry_status",
+  "enquiry_stage",
+  "enquiry_type",
+  "upcoming"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Name"
+  },
+  {
+   "fieldname": "enquiry_date",
+   "fieldtype": "Date",
+   "label": "Enquiry Date",
+   "read_only": 1
+  },
+  {
+   "default": "__user",
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "send_notification",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Send Notification"
+  },
+  {
+   "fieldname": "enquiry_status",
+   "fieldtype": "Select",
+   "label": "Enquiry Status",
+   "options": "Done\nUpcoming\nClosed\nPending\nDirect"
+  },
+  {
+   "fieldname": "enquiry_stage",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Enquiry Stage",
+   "options": "Warm\nHot\nCold\nClosed"
+  },
+  {
+   "default": "0",
+   "fieldname": "upcoming",
+   "fieldtype": "Check",
+   "label": "Upcoming"
+  },
+  {
+   "fieldname": "enquiry_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Enquiry Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "label": "Remarks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "enquiry_id",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Enquiry ID",
+   "options": "TradeIndia Enquiry",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-15 18:49:56.634243",
+ "modified_by": "Administrator",
+ "module": "TradeIndia Integration",
+ "name": "TradeIndia Product",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

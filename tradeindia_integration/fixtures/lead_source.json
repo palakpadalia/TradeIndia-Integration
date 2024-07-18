@@ -1,0 +1,90 @@
+[
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.950454",
+  "name": "Existing Customer",
+  "source_name": "Existing Customer"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.955123",
+  "name": "Reference",
+  "source_name": "Reference"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.957422",
+  "name": "Advertisement",
+  "source_name": "Advertisement"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.959679",
+  "name": "Cold Calling",
+  "source_name": "Cold Calling"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.961901",
+  "name": "Exhibition",
+  "source_name": "Exhibition"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.964003",
+  "name": "Supplier Reference",
+  "source_name": "Supplier Reference"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.966178",
+  "name": "Mass Mailing",
+  "source_name": "Mass Mailing"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.968300",
+  "name": "Customer's Vendor",
+  "source_name": "Customer's Vendor"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.970400",
+  "name": "Campaign",
+  "source_name": "Campaign"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-06-21 13:32:47.972597",
+  "name": "Walk In",
+  "source_name": "Walk In"
+ },
+ {
+  "details": null,
+  "docstatus": 0,
+  "doctype": "Lead Source",
+  "modified": "2024-07-12 16:14:35.723047",
+  "name": "TradeIndia",
+  "source_name": "TradeIndia"
+ }
+]
