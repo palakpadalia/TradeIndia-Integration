@@ -1,0 +1,65 @@
+{
+ "charts": [
+  {
+   "chart_name": "TradeIndia Enquiry Trend",
+   "label": "TradeIndia Enquiry Trend"
+  }
+ ],
+ "content": "[{\"id\":\"LaXGr5vIyK\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">TradeIndia Management</span>\",\"col\":12}},{\"id\":\"4uUarYkhd5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"TradeIndia Enquiry\",\"col\":3}},{\"id\":\"AvADuyHrkk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Lead\",\"col\":3}},{\"id\":\"RrxJoAbM71\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Dashboard\",\"col\":3}},{\"id\":\"r-Gk58ev9I\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"TradeIndia Settings\",\"col\":3}},{\"id\":\"Dow_XEz6vV\",\"type\":\"chart\",\"data\":{\"chart_name\":\"TradeIndia Enquiry Trend\",\"col\":12}}]",
+ "creation": "2024-07-15 12:35:03.297224",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "quantity-1",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "TradeIndia Management",
+ "links": [],
+ "modified": "2024-07-16 10:31:16.653216",
+ "modified_by": "Administrator",
+ "module": "TradeIndia Integration",
+ "name": "TradeIndia Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 1.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Dashboard",
+   "link_to": "TradeIndia Enquiry Management Dashboard",
+   "type": "Dashboard"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Lead",
+   "link_to": "Lead",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "TradeIndia Settings",
+   "link_to": "TradeIndia Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "TradeIndia Enquiry",
+   "link_to": "TradeIndia Enquiry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "TradeIndia Management"
+}
