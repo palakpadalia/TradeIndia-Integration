@@ -169,7 +169,7 @@ def tradeindia_code():
 
 @frappe.whitelist()
 def tradeindia_api(from_date, to_date):
-
+    
     # Fetch existing entries to avoid duplicate creation
     Existing_Enquiry_Entries = frappe.get_list("TradeIndia Enquiry", fields=["rfi_id"])
     Existing_RFI_Ids = [entry["rfi_id"] for entry in Existing_Enquiry_Entries]
@@ -201,7 +201,6 @@ def tradeindia_api(from_date, to_date):
             # Format dates as required for the API call
             from_date_str = from_datetime.strftime("%Y-%m-%d")
             to_date_str = next_day_datetime.strftime("%Y-%m-%d")
-
             creating_url = f"{website_url}?userid={user_id}&profile_id={profile_id}&key={tradeindia_key}&from_date={from_date_str}&to_date={to_date_str}"
 
             headers = {
@@ -429,5 +428,9 @@ def tradeindia_to_lead(
             )
 
 
+@frappe.whitelist()
+def scheduled_tradeindia_api():
+    from_date = datetime.today().strftime('%Y-%m-%d')
+    to_date = datetime.today().strftime('%Y-%m-%d')
 
-
+    tradeindia_api(from_date, to_date)
