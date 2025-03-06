@@ -11,20 +11,21 @@ from frappe.model.document import Document
 
 
 class TradeIndiaEnquiry(Document):
-    def validate(self):
-        self.repeat_enquiry()
+    pass
+    # def validate(self):
+    #     self.repeat_enquiry()
 
-    def repeat_enquiry(self):
-        if self.is_new():
-            # Check if the Sender`s` mobile number or Email - ID already exists in the Enquiry doctype
-            Existing_Enquiries = frappe.get_all(
-                "TradeIndia Enquiry",
-                or_filters=[{"mobile_no": self.mobile_no}],
-            )
-            if Existing_Enquiries:
-                self.status = "Repeat Customer"
-            else:
-                self.status = "Open"
+    # def repeat_enquiry(self):
+    #     if self.is_new():
+    #         # Check if the Sender`s` mobile number or Email - ID already exists in the Enquiry doctype
+    #         Existing_Enquiries = frappe.get_all(
+    #             "Enquiry Form",
+    #             or_filters=[{"mobile_no": self.mobile_no}],
+    #         )
+    #         if Existing_Enquiries:
+    #             self.status = "Repeat Customer"
+    #         else:
+    #             self.status = "Open"
 
         
 
@@ -100,9 +101,10 @@ def tradeindia_code():
             response = requests.get(creating_url, headers=headers)
             if response.status_code == 200:
                 data = response.json()
+                print(data)
                 # Filter out already existing sender_ids
                 Existing_Enquiry_Entries = frappe.get_list(
-                    "TradeIndia Enquiry", fields=["name", "rfi_id"]
+                    "Enquiry Form", fields=["name", "rfi_id"]
                 )
                 Existing_RFI_Ids = [
                     entry["rfi_id"] for entry in Existing_Enquiry_Entries
@@ -123,8 +125,8 @@ def tradeindia_code():
                             )
                             # Check if the sender's mobile number already exists in the Enquiry doctype
                             Existing_Enquiries = frappe.get_all(
-                                "TradeIndia Enquiry",
-                                filters={"mobile_no": new_entry.get("sender_mobile")},
+                                "Enquiry Form",
+                                filters={"mobile": new_entry.get("sender_mobile")},
                             )
                             if Existing_Enquiries:
                                 # If the sender is a repeat customer, set the status to 'Repeat Customer'
@@ -134,17 +136,18 @@ def tradeindia_code():
                                 status = "Open"
                             Enquiry = frappe.get_doc(
                                 {
-                                    "doctype": "TradeIndia Enquiry",
+                                    "doctype": "Enquiry Form",
+                                    "naming_series":"TR-IND-Mignesh.-DD.-MM.-.###",
                                     "sender_id": new_entry.get("sender_uid"),
                                     "full_name": new_entry.get("sender_name"),
                                     "email_id": new_entry.get("sender_email"),
                                     "rfi_id": new_entry.get("rfi_id"),
                                     "enquiry_type": new_entry.get("inquiry_type"),
-                                    "mobile_no": new_entry.get("sender_mobile"),
-                                    "phone_no": new_entry.get("sender_other_mobiles"),
-                                    "product_id": new_entry.get("product_id"),
+                                    "mobile": new_entry.get("sender_mobile"),
+                                    "phone": new_entry.get("sender_other_mobiles"),
+                                    "product_category": new_entry.get("product_id"),
                                     "product_name": new_entry.get("product_name"),
-                                    "product_source": new_entry.get("product_source"),
+                                    "source": new_entry.get("product_source"),
                                     "company": new_entry.get("sender_co"),
                                     "enquiry_time": generated_time,
                                     "enquiry_date": generated_date,
@@ -153,6 +156,8 @@ def tradeindia_code():
                                     "country": new_entry.get("sender_country"),
                                     "message": clean_message,
                                     "status": status,
+                                    "enquiry_for_which_company":"Mignesh Petrochem LLP",
+                                    "enquiry_source":"TradeIndia"
                                 }
                             )
                             Enquiry.insert(ignore_permissions=True)
@@ -171,7 +176,7 @@ def tradeindia_code():
 def tradeindia_api(from_date, to_date):
     
     # Fetch existing entries to avoid duplicate creation
-    Existing_Enquiry_Entries = frappe.get_list("TradeIndia Enquiry", fields=["rfi_id"])
+    Existing_Enquiry_Entries = frappe.get_list("Enquiry Form", fields=["rfi_id"])
     Existing_RFI_Ids = [entry["rfi_id"] for entry in Existing_Enquiry_Entries]
 
     enabled = frappe.db.get_single_value("TradeIndia Settings", "enabled")
@@ -234,8 +239,8 @@ def tradeindia_api(from_date, to_date):
 
                                 # Check if the sender's mobile number already exists in the Enquiry doctype
                                 existing_enquiry = frappe.get_all(
-                                    "TradeIndia Enquiry",
-                                    filters={"mobile_no": entry.get("sender_mobile")},
+                                    "Enquiry Form",
+                                    filters={"mobile": entry.get("sender_mobile")},
                                 )
                                 if existing_enquiry:
                                     status = "Repeat Customer"
@@ -244,13 +249,14 @@ def tradeindia_api(from_date, to_date):
 
                                 Enquiry = frappe.get_doc(
                                     {
-                                        "doctype": "TradeIndia Enquiry",
+                                        "doctype": "Enquiry Form",
+                                        "naming_series":"TR-IND-Mignesh.-DD.-MM.-.###",
                                         "sender_id": entry.get("sender_uid"),
                                         "full_name": entry.get("sender_name"),
                                         "rfi_id": entry.get("rfi_id"),
                                         "email_id": entry.get("sender_email"),
                                         "enquiry_type": entry.get("inquiry_type"),
-                                        "mobile_no": entry.get("sender_mobile"),
+                                        "mobile": entry.get("sender_mobile"),
                                         "phone_no": entry.get("sender_other_mobiles"),
                                         "product_id": entry.get("product_id"),
                                         "product_name": entry.get("product_name"),
@@ -263,6 +269,8 @@ def tradeindia_api(from_date, to_date):
                                         "country": entry.get("sender_country"),
                                         "message": clean_message,
                                         "status": status,
+                                        "enquiry_for_which_company":"Mignesh Petrochem LLP",
+                                        "enquiry_source":"TradeIndia"
                                     }
                                 )
 
@@ -347,7 +355,7 @@ def tradeindia_to_lead(
         frappe.db.commit()
 
         frappe.db.set_value(
-            "TradeIndia Enquiry",
+            "Enquiry Form",
             name,
             {
                 "lead": data.name,
@@ -358,18 +366,18 @@ def tradeindia_to_lead(
         )
         frappe.db.commit()
         other_enquiries = frappe.get_list(
-                "TradeIndia Enquiry",
-                filters={"mobile_no": mobile_no, "name": ("!=", name)},
+                "Enquiry Form",
+                filters={"mobile": mobile_no, "name": ("!=", name)},
                 fields=["*"],
             )
         for enquiry in other_enquiries:
                 frappe.db.set_value(
-                    "TradeIndia Enquiry",
+                    "Enquiry Form",
                     enquiry.name,
                     "lead",
                     data.name,
             )
-        frappe.db.set_value("TradeIndia Enquiry", enquiry.name, "lead", data.name)
+        frappe.db.set_value("Enquiry Form", enquiry.name, "lead", data.name)
 
         associated_lead = frappe.get_doc("Lead", data.name)
 
@@ -417,7 +425,7 @@ def tradeindia_to_lead(
 
             frappe.db.commit()
             frappe.db.set_value(
-                "TradeIndia Enquiry",
+                "Enquiry Form",
                 name,
                 {
                     "lead": lead_data[0]["name"],

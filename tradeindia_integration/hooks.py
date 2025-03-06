@@ -133,11 +133,11 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-scheduler_events = {
-	"sync_tardeIndia_leads": {
-        "*/5 * * * *": ["tradeindia_integration.tradeindia_integration.doctype.tradeindia_enquiry.tradeindia_enquiry.scheduled_tradeindia_api"],
- },
-# 	"daily": [
+# scheduler_events = {
+# 	"sync_tardeIndia_leads": {
+#         "*/5 * * * *": ["tradeindia_integration.tradeindia_integration.doctype.tradeindia_enquiry.tradeindia_enquiry.scheduled_tradeindia_api"],
+#  },
+# # 	"daily": [
 # 		"tradeindia_integration.tasks.daily"
 # 	],
 # 	"hourly": [
@@ -149,7 +149,7 @@ scheduler_events = {
 # 	"monthly": [
 # 		"tradeindia_integration.tasks.monthly"
 # 	],
-}
+# }
 
 # Testing
 # -------
